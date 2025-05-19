@@ -40,7 +40,7 @@ steps:
         "--region",
         "us-central1",
         "--allow-unauthenticated",
-        "--set-env-vars=DB_HOST=$_DB_HOST,DB_USER=$_DB_USER,DB_PASS=$_DB_PASS,DB_NAME=$_DB_NAME"
+        "--set-env-vars=DB_HOST=$_DB_HOST,DB_USER=$_DB_USER,DB_PASS=$_DB_PASS,DB_NAME=$_DB_NAME,TOKEN_SECRET_KEY=$_TOKEN_SECRET_KEY"
       ]
 
 
