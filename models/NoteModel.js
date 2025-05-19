@@ -1,5 +1,6 @@
-const { Sequelize } = require( "sequelize");
-const db = require( "../config/Database.js");
+const { Sequelize } = require("sequelize");
+const db = require("../config/Database.js");
+const User = require("./UserModel.js");
 
 const Note = db.define("note", {
   id: {
@@ -16,10 +17,19 @@ const Note = db.define("note", {
     allowNull: false,
   },
   userId: {
-    type: Sequelize.STRING,
+    type: Sequelize.INTEGER,
     allowNull: false,
+    references: {
+      model: User,
+      key: "id",
+    },
+    onDelete: "CASCADE",
   },
 });
+
+// Define relasi
+User.hasMany(Note, { foreignKey: "userId" });
+Note.belongsTo(User, { foreignKey: "userId" });
 
 db.sync().then(() => console.log("Database synced"));
 
