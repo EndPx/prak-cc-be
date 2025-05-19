@@ -5,6 +5,10 @@ const UserRoute = require("./routes/UserRoute.js");
 
 const app = express();
 
+console.log("DB_HOST =", process.env._DB_HOST);
+console.log("DB_USER =", process.env._DB_USER);
+console.log("DB_NAME =", process.env._DB_NAME);
+
 app.use(cors({
   origin: "http://localhost:3000",
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
